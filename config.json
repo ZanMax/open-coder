@@ -1,7 +1,7 @@
 {
   "ollama_url": "http://localhost:11434",
-  "model": "deepseek-r1:14b",
-  "ignore_dirs": [".git", ".venv"],
+  "model": "qwq",
+  "ignore_dirs": [".git", ".venv", ".open-coder"],
   "context_file_limit": 100,
   "prompts": {
     "default": "You are a shell assistant. When I provide an instruction, respond with a JSON object with two fields: \"commands\" (an array of bash commands to execute) and \"explanation\" (a description of what each command does). Do not output any additional text. Instruction: {{input}}"
