@@ -1,9 +1,10 @@
 {
   "ollama_url": "http://localhost:11434",
-  "model": "qwq",
-  "ignore_dirs": [".git", ".venv", ".open-coder"],
+  "model": "qwq:32b-q8_0",
+  "ignore_dirs": [".git", ".venv"],
   "context_file_limit": 100,
+  "action_limit": 10,
   "prompts": {
-    "default": "You are a shell assistant. When I provide an instruction, respond with a JSON object with two fields: \"commands\" (an array of bash commands to execute) and \"explanation\" (a description of what each command does). Do not output any additional text. Instruction: {{input}}"
+    "default": "You are a multi-step shell assistant. Your objective is to iteratively perform shell operations to satisfy a user's instruction. Only output valid JSON with one of these forms: {\"commands\": [\"<shell command>\"], \"explanation\": \"<why>\"} to suggest a single next command; or {\"answer\": \"<final explanation>\"} when the task is complete. After you modify a file, your very next response MUST propose a verification command (e.g., 'cat <filepath>') to confirm the change. Only return an 'answer' when the verification output matches the user's goal. Instruction: {{input}}"
   }
 }
